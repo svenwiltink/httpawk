@@ -1,4 +1,5 @@
 # A webserver implemented in AWK. 
+Start it with `awk -f http.awk`. Edit the port and http dir by changing the values at line 2 and 4.
 
 ## Why?
 Why not?
