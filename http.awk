@@ -5,10 +5,8 @@ BEGIN {
 	while (1) {
 		print "handling request";
 		while ((HttpService |& getline line) > 0 ) {
-			print "parsing line";
 			split(line, parts, " ");
 			if (parts[1] == "GET") {
-				print "parsing GET line";
 				path = parts[2];
 				path = urlDecode(path);
 				path = substr(path, 2);
@@ -20,9 +18,9 @@ BEGIN {
 
 				realpath = trim(realpath);
 
-				if (realpah != fullpaht) {
+				if (realpath != fullpath) {
 					print "not a real path: " fullpath;
-					print "HTTP/1.0 5404 FILENOTFOUND" |& HttpService;
+					print "HTTP/1.0 404 FILENOTFOUND" |& HttpService;
 					break;	
 				}
 
